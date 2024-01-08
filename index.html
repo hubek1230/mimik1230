@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mimik</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+        }
+        #jumpscare-img {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 9999;
+        }
+    </style>
+    <script>
+        function showJumpscare() {
+            var element = document.getElementById("jumpscare-img");
+            var audio = document.getElementById("jumpscare-audio");
+
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+
+            element.style.display = "block";
+            audio.play();
+        }
+    </script>
+</head>
+<body>
+    <h1>nie masz psyhy kliknonc</h1>
+    <button onclick="showJumpscare()">Click me for a surprise!</button>
+    <audio id="jumpscare-audio" loop>
+        <source src="looping-sound.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <img id="jumpscare-img" src="cute-dog-image.jpg" alt="Cute Doggy">
+</body>
+</html>
